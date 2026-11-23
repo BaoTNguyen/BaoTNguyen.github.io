@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../site';
+
+const beliefs = [
+  ['Rigorous intuition', 'Learn facts and principles behind different domains, then combine them with common sense to drive things forward.'],
+  ['Meaningful goals', "Pursue something beyond what you know or imagine. It's meant to be difficult and reveal more about the real world."],
+  ['Alignment + intensity', 'True performance comes from finding what you align with and pursuing it deeply.'],
+  ['Anti-(only fancy demos)', 'Demos should embody aspects that can be taken further into real use instead of only looking fancy while being functionally useless.'],
+];
+const interests = [
+  'Software factories',
+  'Multi-agent systems',
+  'LLM inference',
+  'System one/decision models',
+  'Learning to learn',
+  'The ever-evolving business landscape',
+  'Evolving how I think and live life',
+];
+---
+<Base>
+  <div class="page home">
+    <div>
+      <h1 class="hero"><em>Solving</em> problems, <em>shipping</em> results and <em>sharing</em> knowledge.</h1>
+      <p class="lede">From self-learning AI to delivering successful AI projects and shipping in the tech frontier as an ML Engineer, I'm constantly learning quickly, applying tech to many domains and staying adaptable to changes.</p>
+
+      <h2 class="blk">What I believe in</h2>
+      <ul class="beliefs">
+        {beliefs.map(([t, d]) => <li><b>{t}</b>{d}</li>)}
+      </ul>
+
+      <h2 class="blk">Current interests</h2>
+      <ul class="interests">
+        {interests.map((i) => <li>{i}</li>)}
+      </ul>
+    </div>
+    <p class="hub"><span class="note">More places to find me</span><a href={`https://${site.hub}`} target="_blank" rel="noopener">{site.hub} ↗</a></p>
+  </div>
+</Base>

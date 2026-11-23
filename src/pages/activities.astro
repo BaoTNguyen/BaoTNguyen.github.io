@@ -1,0 +1,66 @@
+---
+import Base from '../layouts/Base.astro';
+import { projects } from '../data/projects';
+import { recentCommits, isMerge } from '../lib/github';
+import type { Commit } from '../lib/github';
+import { site } from '../site';
+
+// Written by scripts/fetch-youtube.mjs before each dev/build run; absent if it has never succeeded.
+const videoFiles = import.meta.glob('../data/latest-video.json', { eager: true, import: 'default' }) as Record<string, { id: string; title: string; published: string; url: string }>;
+const video = Object.values(videoFiles)[0];
+
+const fmt = (d: Date) => d.toLocaleDateString('en-CA', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+
+// One newest non-merge commit per project. A project's sub-repos (e.g. vascular's heart, pulse) count as that
+// project. The same value feeds the card's "Last commit" and the "Latest activity" list.
+const latest = await Promise.all(projects.map(async (p) => {
+  const all = (await Promise.all([p.repo, ...(p.extraRepos ?? [])].map((r) => recentCommits(r, 5)))).flat().filter((c) => !isMerge(c));
+  const last = all.sort((x, y) => y.date.getTime() - x.date.getTime())[0] as Commit | undefined;
+  return { ...p, last };
+}));
+
+// Latest activity order: project commits first (newest first), then the video, then the X profile link.
+// "Then by date" applies within each group; X has no date, so it is always last.
+type Item = { date: Date } & ({ kind: 'commit'; name: string; url: string } | { kind: 'video'; title: string; url: string });
+const byNewest = (a: Item, b: Item) => b.date.getTime() - a.date.getTime();
+const commitItems = latest.filter((p) => p.last).map((p): Item => ({ kind: 'commit', date: p.last!.date, name: p.name, url: p.last!.url })).sort(byNewest);
+const otherItems: Item[] = (video ? [{ kind: 'video', date: new Date(video.published), title: video.title, url: video.url } as Item] : []).sort(byNewest);
+const items: Item[] = [...commitItems, ...otherItems].slice(0, 5);
+---
+<Base title="Activities" description="The projects I'm working on, and what I've been building lately.">
+  <div class="page">
+    <h1 class="sr">Activities</h1>
+    <h2 class="blk">Main projects</h2>
+    <div class="stack">
+      {latest.map((p) => (
+        <article class="card">
+          <h3><a class="plink" href={`https://github.com/${p.repo}`} target="_blank" rel="noopener">{p.name}</a></h3>
+          <p>{p.blurb}</p>
+          {p.last && <p class="note">Last commit: <a href={p.last.url} target="_blank" rel="noopener">{fmt(p.last.date)}</a></p>}
+        </article>
+      ))}
+    </div>
+
+    <h2 class="blk">Latest activity</h2>
+    <ul class="feed">
+      {items.map((i) => (
+        <li class="entry">
+          <time datetime={i.date.toISOString().slice(0, 10)}><a href={i.url} target="_blank" rel="noopener">{fmt(i.date)}</a></time>
+          {i.kind === 'commit'
+            ? <div><span class="tag">Commit</span> <h3>{i.name}</h3></div>
+            : (
+              <div>
+                <span class="tag">YouTube</span>
+                <h3><a href={i.url} target="_blank" rel="noopener">{i.title}</a></h3>
+                <a class="vthumb" href={i.url} target="_blank" rel="noopener"><img src="/latest-video.jpg" width="480" height="360" alt="" loading="lazy" /></a>
+              </div>
+            )}
+        </li>
+      ))}
+      <li class="entry">
+        <span></span>
+        <div><span class="tag">X</span> <h3><a href={site.x} target="_blank" rel="noopener">Latest posts ↗</a></h3></div>
+      </li>
+    </ul>
+  </div>
+</Base>

@@ -1,0 +1,20 @@
+{
+  "name": "baotnguyen-site",
+  "type": "module",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "fetch:youtube": "node scripts/fetch-youtube.mjs",
+    "predev": "npm run fetch:youtube",
+    "dev": "astro dev",
+    "prebuild": "npm run fetch:youtube",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@fontsource-variable/bricolage-grotesque": "^5.3.0",
+    "@fontsource-variable/dm-sans": "^5.3.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "astro": "^7.3.8"
+  }
+}
