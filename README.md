@@ -1,6 +1,6 @@
 # baotnguyen.github.io
 
-Personal site built with [Astro](https://astro.build). Static output, no tracking, deployed to GitHub Pages by `.github/workflows/deploy.yml` on every push to `main` and every 6 hours.
+Personal site built with [Astro](https://astro.build). Static output, no tracking, deployed to GitHub Pages by `.github/workflows/deploy.yml` on every push to `main` and once a day (11:17 UTC).
 
 ## Run it
 
