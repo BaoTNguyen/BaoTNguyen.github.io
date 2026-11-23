@@ -47,7 +47,7 @@ const items: Item[] = [...commitItems, ...otherItems].slice(0, 5);
         <li class="entry">
           <time datetime={i.date.toISOString().slice(0, 10)}><a href={i.url} target="_blank" rel="noopener">{fmt(i.date)}</a></time>
           {i.kind === 'commit'
-            ? <div><span class="tag">Commit</span> <h3>{i.name}</h3></div>
+            ? <div><span class="tag">GitHub</span> <h3>{i.name}</h3></div>
             : (
               <div>
                 <span class="tag">YouTube</span>
