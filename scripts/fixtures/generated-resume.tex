@@ -1,0 +1,221 @@
+% Fixture: builder output (cv-template.bao) from a payload that follows every rule, plus the two hand fixes _custom.md asks for.
+% narrative: ML engineer who takes agentic AI from concept to measured, working systems for real clients
+% terms: agent, client, retriev, production
+%-------------------------
+% Career-Ops LaTeX CV Template, user variant "bao" (data/templates: never touched by updates)
+% Order: Experience, Projects, Certifications, Technical Skills, Education. No icons.
+% Based on: Gabriel Sison / sb2nov resume template
+% License: MIT
+%------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Random Stuff %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[letterpaper,11pt]{article}
+% T1 encoding: without it pdflatex's default OT1 has no glyph for "_" and
+% "~", so a CV carrying "snake_case" or "~12" loses those characters in the
+% PDF text layer (ATS parsers read that layer, not the screen).
+% lmodern is not optional here. fontenc alone switches to the EC fonts,
+% whose Type 1 files are not installed everywhere; pdflatex then falls back
+% to Type 3 bitmaps with no ToUnicode map, which breaks text extraction for
+% the whole document. Latin Modern ships matching Type 1 fonts, so every
+% glyph keeps an encoding.
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-7pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{0pt}]
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Commands  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-3pt}}
+  }
+}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-3pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeSubheadingContinue}[2]{
+  \vspace{-3pt}
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeProjectHeading}[2]{
+  \vspace{-3pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{0pt}}
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{0pt}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Heading  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+    \begin{center}
+        % NAME
+        {\Huge\scshape Bao Nguyen}
+        % SUBHEADING
+        \\[0.125cm] Edmonton, AB $|$
+        \small
+        % One contact line. LinkedIn and GitHub show their logo and the word, linked (user preference 2026-11-23);
+        % the logos are the only icons allowed anywhere. EMAIL_URL already carries its scheme; sanitizeUrl adds it.
+        \href{mailto:baotnguyen8@gmail.com}{\underline{baotnguyen8@gmail.com}} $|$
+        \href{https://www.linkedin.com/in/bao-thanh-nguyen}{\faLinkedin\ \underline{LinkedIn}} $|$
+        \href{https://github.com/BaoTNguyen}{\faGithub\ \underline{GitHub}}
+    \end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Experience  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Work Experience}
+% The builder passes experience as {company}{dates}{role}{location}; house style puts the
+% location bold on line 1 and the dates italic on line 2 (same as Education), so swap
+% #2 and #4 for this section only. Education keeps the stock macro.
+\begingroup
+\renewcommand{\resumeSubheading}[4]{
+  \vspace{-3pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #4} \\
+      \textit{\small#3} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {M2M Tech}{Apr 2026 -- Present}
+      {Machine Learning Engineer}{Vancouver, BC}
+      \resumeItemListStart
+            \resumeItem{Took agentic AI from concept to working systems in smart-city traffic, 311 response, farming, and sales}
+            \resumeItem{Built a smart-city traffic agent on \textbf{NVIDIA NeMo} that recommends operator actions in \textbf{2 minutes}, replacing manual cross-checks}
+            \resumeItem{Presented the technical side of \textbf{30} presales calls and conference demos, explaining agent systems to prospective clients}
+      \resumeItemListEnd
+
+    \resumeSubheadingContinue
+      {Machine Learning Engineer Intern}{Apr 2024 -- Mar 2026}
+      \resumeItemListStart
+            \resumeItem{Shipped \textbf{5} ML projects in \textbf{5} domains, from LoRA fine-tuning to multi-step agents for insurance and maritime clients}
+            \resumeItem{Built a \textbf{LangChain} self-critique classification pipeline over \textbf{790 prompts}, scoring output quality with \textbf{ROUGE}}
+            \resumeItem{Handed a client project to production in \textbf{one day} with \textbf{pytest} coverage, documentation, and a reorganized codebase}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\endgroup
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  PROJECTS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Personal Projects}
+% House style: underlined, linked project name; the stack stays italic, not bold. The builder
+% already bolds the name, so this section's heading macro drops its blanket \textbf, and
+% \href underlines its text here. Plain GitHub URLs only (the 2-arg \href skips hyperref's
+% special-character handling).
+\begingroup
+\renewcommand{\resumeProjectHeading}[2]{
+  \vspace{-3pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      #1 & \textbf{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+\let\careerOpsHref\href
+\renewcommand{\href}[2]{\careerOpsHref{#1}{\underline{#2}}}
+\resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\href{https://github.com/BaoTNguyen/heart}{\textbf{heart}} \emph{$|$ Python}}{}
+      \resumeItemListStart
+            \resumeItem{Built a coding-agent orchestrator that runs an implement, test, and review loop in isolated git worktrees}
+            \resumeItem{Verifies changes against the target repository's test suite, applying them only after the reviewer approves}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\href{https://github.com/BaoTNguyen/capillaries}{\textbf{capillaries}} \emph{$|$ Python, PostgreSQL, pgvector, FastAPI, MCP}}{}
+      \resumeItemListStart
+            \resumeItem{Built a retrieval service over roughly 1,000 prompts, available through MCP, FastAPI, a Python library, and a CLI}
+            \resumeItem{Combined dense and sparse search with reciprocal rank fusion to select prompts for an agent's current task}
+      \resumeItemListEnd
+\resumeSubHeadingListEnd
+\endgroup
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  AWARDS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Certifications ride the AWARDS slot: pass them as payload.awards
+% ([{title, year: "May 2026"}]); buildAwards renders a bold name and bold date.
+\section{Certifications}
+% One-line entries stack tighter than project headings: no second row to clear.
+\begingroup
+\renewcommand{\resumeProjectHeading}[2]{
+  \vspace{-10pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      #1 & \textbf{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+\resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\textbf{GCP Professional Machine Learning Engineer}}{May 2026}
+
+    \resumeProjectHeading
+      {\textbf{AWS Certified Machine Learning Engineer -- Associate}}{Sep 2025}
+\resumeSubHeadingListEnd
+\endgroup
+\vspace{-2pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Technical Skills  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Technical Skills}
+\vspace{-7pt}
+\begin{itemize}
+[leftmargin=0.15in, label={}]\small{\item{
+        \textbf{Languages}{: }{Python, R, SQL} \\
+        \textbf{Developer Tools}{: }{AWS, GCP, Azure, Claude Code, Codex, Git, Linux} \\
+        \textbf{Libraries}{: }{PyTorch, TensorFlow, LangChain, LangSmith, MCP, FastAPI, PostgreSQL, pgvector, pytest} \\
+}}
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Education  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Alberta}{Edmonton, AB}
+      {Bachelor of Science, Specialization in Mathematics and Finance}{Graduated June 2026}
+  \resumeSubHeadingListEnd
+
+%%%%  END  %%%%
+
+\end{document}

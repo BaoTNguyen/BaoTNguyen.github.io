@@ -1,0 +1,178 @@
+% narrative: ML engineer who builds agent systems end to end and measures whether they work, from client deployments to an open-source agent stack
+% terms: agent, client, measur, evaluat, production
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[letterpaper,11pt]{article}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Bao Nguyen - Resume},pdfauthor={Bao Nguyen}}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-7pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{0pt}]
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Commands  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-3pt}}
+  }
+}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-3pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeSubheadingContinue}[2]{
+  \vspace{-3pt}
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeProjectHeading}[2]{
+  \vspace{-3pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2}
+    \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{0pt}}
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{0pt}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Heading  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+    \begin{center}
+        {\Huge\scshape Bao Nguyen}
+        \\[0.125cm]
+        Edmonton, AB $|$
+        \href{mailto:baotnguyen8@gmail.com}{\underline{baotnguyen8@gmail.com}} $|$
+        \href{https://www.linkedin.com/in/bao-thanh-nguyen}{\faLinkedin\ \underline{LinkedIn}} $|$
+        \href{https://github.com/BaoTNguyen}{\faGithub\ \underline{GitHub}} $|$
+        \href{https://lnksy.bio/bao-nguyen}{\underline{Website}}
+    \end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Experience  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Experience}
+    \resumeSubHeadingListStart
+        \resumeSubheading
+        {M2M Tech}{Vancouver, BC}
+        {Machine Learning Engineer}{Apr 2026 -- Present}
+            \resumeItemListStart
+                \resumeItem{Took agentic AI from concept to working systems in smart-city traffic, 311 response, farming, and sales}
+                \resumeItem{Built a smart-city traffic agent on \textbf{NVIDIA NeMo} that recommends operator actions in \textbf{2 minutes}, replacing manual cross-checks}
+                \resumeItem{Extended that agent to critical-infrastructure and 311 incident data, giving city operators one system instead of several}
+                \resumeItem{Presented the technical side of \textbf{30} presales calls and conference demos, explaining agent systems to prospective clients}
+            \resumeItemListEnd
+
+            \resumeSubheadingContinue
+            {Machine Learning Engineer Intern}{Apr 2024 -- Mar 2026}
+            \resumeItemListStart
+                \resumeItem{Shipped \textbf{5} ML projects in \textbf{5} domains, from a \textbf{200,000}-record wave-energy data pipeline to multi-step agents for insurance and maritime clients}
+                \resumeItem{Designed a four-stage insurance-benefits agent for a mental-health app, making each step auditable}
+                \resumeItem{Built a \textbf{LangChain} self-critique classification pipeline over \textbf{790 prompts}, scoring output quality with \textbf{ROUGE}}
+                \resumeItem{Handed a client project to production in \textbf{one day} with \textbf{pytest} coverage, documentation, and a reorganized codebase}
+            \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Projects  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Projects}
+    \resumeSubHeadingListStart
+        \resumeProjectHeading
+        {\href{https://github.com/BaoTNguyen/jev-test}{\underline{Agent Tool-Routing Benchmark}} \textnormal{$|$ \emph{Python, google-genai, FastAPI, PostgreSQL, TimescaleDB, Docker, Sentry}}}{}
+        \resumeItemListStart
+            \resumeItem{Built a hackathon benchmark measuring whether decision models that shortlist an agent's tools make Gemini cheaper and more accurate, over \textbf{502} graded attempts}
+            \resumeItem{Cut LLM cost by \textbf{35\% to 76\%} and input tokens by \textbf{29\% to 68\%} on matched tasks without breaking a single correct first tool call, per each benchmark's own grader}
+            \resumeItem{Shrank tool lists of up to \textbf{100} tools to about \textbf{3} while keeping the right tool \textbf{96\% to 98\%} of the time}
+        \resumeItemListEnd
+
+        \resumeProjectHeading
+        {\href{https://github.com/BaoTNguyen/heart}{\underline{heart}} \textnormal{$|$ \emph{Python}}}{}
+        \resumeItemListStart
+            \resumeItem{Built a coding-agent orchestrator that runs implement, test, and review loops in isolated git worktrees}
+            \resumeItem{Lands a diff only when the repository's own tests pass on a clean checkout and the reviewer approves}
+            \resumeItem{Routes each task across Claude Code, Codex, Gemini CLI, and OpenAI-compatible models by difficulty}
+        \resumeItemListEnd
+
+        \resumeProjectHeading
+        {\href{https://github.com/BaoTNguyen/capillaries}{\underline{capillaries}} \textnormal{$|$ \emph{Python, PostgreSQL, pgvector, FastAPI, MCP}}}{}
+        \resumeItemListStart
+            \resumeItem{Built a service that picks an agent's prompt from about \textbf{1,000}, served over MCP, FastAPI, and a CLI}
+            \resumeItem{Fuses \textbf{50} dense and \textbf{50} sparse candidates with reciprocal rank fusion, then reranks with a cross-encoder}
+            \resumeItem{Measures the retriever with its own evaluation harness and retires prompts that stop earning their place}
+        \resumeItemListEnd
+
+        \resumeProjectHeading
+        {\href{https://github.com/BaoTNguyen/pulse}{\underline{pulse}} \textnormal{$|$ \emph{Rust, PostgreSQL}}}{}
+        \resumeItemListStart
+            \resumeItem{Built the event journal for an agent stack, collecting events from local spools into indexed PostgreSQL}
+            \resumeItem{Replaced the dashboard's slowest step, full-journal scans fine at \textbf{2,000} events a day, with indexed queries for \textbf{10 to 100} times that}
+            \resumeItem{Kept writes independent of any live service or database credential, so a logging outage never stops the agents}
+        \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Certifications  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Certifications}
+    \vspace{-7pt}
+    \begin{itemize}[leftmargin=0.0in, label={}]
+        \item
+        \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+          \textbf{\small GCP Professional Machine Learning Engineer} & \textbf{\small May 2026} \\
+          \textbf{\small AWS Certified Machine Learning Engineer -- Associate} & \textbf{\small Sep 2025} \\
+        \end{tabular*}
+    \end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Technical Skills  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Technical Skills}
+    \vspace{-7pt}
+    \begin{itemize}[leftmargin=0.15in, label={}]\small{\item{
+        \textbf{Languages}{: Python, R, SQL} \\
+        \textbf{Developer Tools}{: AWS, GCP, Azure, Claude Code, Codex, Cursor, Git, Linux} \\
+        \textbf{Libraries}{: PyTorch, TensorFlow, LangChain, LangGraph, LangSmith, MCP, FastAPI, PostgreSQL, pgvector, pytest}
+    }}
+    \end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Education  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+    {University of Alberta}{Edmonton, AB}
+    {Bachelor of Science, Specialization in Mathematics and Finance}{Graduated June 2026}
+  \resumeSubHeadingListEnd
+
+\end{document}

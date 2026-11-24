@@ -1,0 +1,178 @@
+% narrative: ML engineer who builds agent systems end to end and measures whether they work, from client deployments to an open-source agent stack
+% terms: agent, client, measur, evaluat, production
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[letterpaper,11pt]{article}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Bao Nguyen - Resume},pdfauthor={Bao Nguyen}}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-7pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{0pt}]
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Commands  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-3pt}}
+  }
+}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-3pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeSubheadingContinue}[2]{
+  \vspace{-3pt}
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeProjectHeading}[2]{
+  \vspace{-3pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2}
+    \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{0pt}}
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{0pt}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Heading  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+    \begin{center}
+        {\Huge\scshape Bao Nguyen}
+        \\[0.125cm]
+        Edmonton, AB $|$
+        \href{mailto:baotnguyen8@gmail.com}{\underline{baotnguyen8@gmail.com}} $|$
+        \href{https://www.linkedin.com/in/bao-thanh-nguyen}{\faLinkedin\ \underline{LinkedIn}} $|$
+        \href{https://github.com/BaoTNguyen}{\faGithub\ \underline{GitHub}} $|$
+        \href{https://lnksy.bio/bao-nguyen}{\underline{Website}}
+    \end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Experience  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Experience}
+    \resumeSubHeadingListStart
+        \resumeSubheading
+        {M2M Tech}{Vancouver, BC}
+        {Machine Learning Engineer}{Apr 2026 -- Present}
+            \resumeItemListStart
+                \resumeItem{Ideated, built and tested \textbf{3+} agent prototypes within \textbf{a month} each, reducing iteration time by \textbf{38\%}}
+                \resumeItem{Built an \textbf{NVIDIA NeMo} agent prototype that unifies signal, sensor, and incident data, giving city operators recommended traffic actions in \textbf{2 minutes} instead of \textbf{10 minutes} from manually cross-checking feeds}
+                \resumeItem{Extended traffic agent to include critical-infrastructure and \textbf{311} incident alerts, centralizing city management for operators in one system}
+                \resumeItem{Demoed and educated clients about company's technical products in \textbf{30+} presales calls}
+            \resumeItemListEnd
+
+            \resumeSubheadingContinue
+            {Machine Learning Engineer Intern}{Apr 2024 -- Mar 2026}
+            \resumeItemListStart
+                \resumeItem{Delivered 3+ successful AI transformation projects for SME clients from multiple industries}
+                \resumeItem{Designed a four-stage insurance-benefits agent for a mental-health app, streamlining onboarding from \textbf{10 to 2 minutes} with auditable steps}
+                \resumeItem{Created a maritime entity-extraction pipeline and handed off documentation to meet client's production deadline in \textbf{one week} with \textbf{pytest} coverage}
+                \resumeItem{Built a \textbf{LangChain} self-critique classification pipeline over \textbf{790 prompts} with \textbf{ROUGE} scoring for maritime articles}
+            \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Projects  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Projects}
+    \resumeSubHeadingListStart
+        \resumeProjectHeading
+        {\href{https://github.com/BaoTNguyen/agent-tool-routing-benchmark}{\underline{Agent Tool-Routing Benchmark}} \textnormal{$|$ \emph{Python, google-genai, FastAPI, PostgreSQL, TimescaleDB, Docker, Sentry}}}{}
+        \resumeItemListStart
+            \resumeItem{Cut \textbf{Gemini}'s Hydrogen and Carbon token cost by \textbf{35\% to 76\%} without breaking a single correct first tool call over \textbf{502} graded workflows using Gemini, SubQ and Jev decision models to shortlist tools to choose from}
+            \resumeItem{Cut input tokens by \textbf{29\% to 68\%} by shrinking tool exposure, keeping the right tool \textbf{96\% to 98\%} of the time}
+            \resumeItem{Corrected a misleading workflow speedup from \textbf{3s} to \textbf{0.6s} by testing each task with and without the router}
+        \resumeItemListEnd
+
+        \resumeProjectHeading
+        {\href{https://github.com/BaoTNguyen/inference-opt}{\underline{inference-opt}} \textnormal{$|$ \emph{Python, vLLM, Grafana}}}{}
+        \resumeItemListStart
+            \resumeItem{Doubled a \textbf{27B} model's base decode speed to \textbf{125} tokens/sec on two \textbf{RTX 3090s} while staying at equal accuracy}
+            \resumeItem{Added \textbf{DFlash2 speculative decoding} at W4A16 and \textbf{Triton} attention for full \textbf{CUDA graphs}}
+            \resumeItem{Held every setup to p95 TTFT under \textbf{1s} and a fixed \textbf{GSM8K and IFEval} suite, keeping \textbf{99\%} on GSM8K}
+        \resumeItemListEnd
+
+        \resumeProjectHeading
+        {\href{https://github.com/BaoTNguyen/vascular}{\underline{vascular}} \textnormal{$|$ \emph{Python, Rust, PostgreSQL, Docker}}}{}
+        \resumeItemListStart
+            \resumeItem{Built a \textbf{software factory} for autonomous development from human planning and approval}
+            \resumeItem{Built a dashboard to track runs, cost, and model use details over time for management}
+            \resumeItem{Routes each task across \textbf{Claude Code}, \textbf{Codex}, \textbf{Gemini CLI}, and OpenAI-compatible models by difficulty, speed and cost}
+        \resumeItemListEnd
+
+        \resumeProjectHeading
+        {\href{https://github.com/BaoTNguyen/pulse}{\underline{pulse}} \textnormal{$|$ \emph{Rust, PostgreSQL}}}{}
+        \resumeItemListStart
+            \resumeItem{Built a centralized logging service to collect events from the software factory for debugging or improving from evidence}
+            \resumeItem{Cut a run's event lookup from \textbf{150ms} to about \textbf{1ms} over \textbf{52,000} logged events with indexed PostgreSQL queries}
+            \resumeItem{Increased reliability from outages by separating agent-logged events from background loads into the database}
+        \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Certifications  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Certifications}
+    \vspace{-7pt}
+    \begin{itemize}[leftmargin=0.0in, label={}]
+        \item
+        \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+          \textbf{\small GCP Professional Machine Learning Engineer} & \textbf{\small May 2026} \\
+          \textbf{\small AWS Certified Machine Learning Engineer -- Associate} & \textbf{\small Sep 2025} \\
+        \end{tabular*}
+    \end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Technical Skills  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Technical Skills}
+    \vspace{-7pt}
+    \begin{itemize}[leftmargin=0in, label={}]\small{\item{
+        \textbf{Languages}{: Python, R, SQL, Rust} \\
+        \textbf{Developer Tools}{: AWS, GCP, Azure, Claude Code, Codex, Cursor, Git, Linux} \\
+        \textbf{Libraries}{: PyTorch, TensorFlow, LangChain, LangGraph, LangSmith, MCP, FastAPI, PostgreSQL, pgvector, pytest}
+    }}
+    \end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Education  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+    {University of Alberta}{Edmonton, AB}
+    {Bachelor of Science, Specialization in Mathematics and Finance}{Graduated June 2026}
+  \resumeSubHeadingListEnd
+
+\end{document}
