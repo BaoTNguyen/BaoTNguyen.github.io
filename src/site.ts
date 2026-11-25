@@ -1,7 +1,7 @@
 // One place for facts that appear in several spots. Edit here, not in the pages.
 export const site = {
   name: 'Bao Nguyen',
-  tagline: 'Machine learning engineer',
+  tagline: 'Machine Learning Engineer',
   place: 'Edmonton, Alberta',
   // TODO: set a public email you'll keep after graduation. While null, the contact line shows GitHub and LinkedIn only.
   email: null as string | null,

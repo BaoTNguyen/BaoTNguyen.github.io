@@ -6,7 +6,7 @@ import '../styles/global.css';
 import { site } from '../site';
 
 interface Props { title?: string; description?: string; }
-const { title, description = `${site.name}: ${site.tagline.toLowerCase()} in ${site.place}. Things I build, measure and explain.` } = Astro.props;
+const { title, description = "From self-learning AI to delivering successful AI projects and shipping in the tech frontier as an ML Engineer, I'm constantly learning quickly, applying tech to many domains and staying adaptable to changes." } = Astro.props;
 const fullTitle = title ? `${title} · ${site.name}` : `${site.name} · ${site.tagline}`;
 const path = Astro.url.pathname;
 const nav = [
@@ -27,6 +27,9 @@ const nav = [
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={new URL(path, Astro.site)} />
+    <meta property="og:image" content={new URL('/og.png', Astro.site)} />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href={new URL(path, Astro.site)} />
   </head>
   <body>
